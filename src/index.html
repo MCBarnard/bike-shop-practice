@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <title>Bike Shop</title>
+</head>
+<body>
+    <div id="intro" class="container">
+        <h1>Take the Treck</h1>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem minima nesciunt ipsam pariatur excepturi, eos veritatis eius quae quos itaque ea nemo voluptatibus placeat commodi culpa asperiores beatae necessitatibus provident.</p>
+        <div class='go-biking-button'>
+            <button class='btn'>
+                Go Biking
+            </button>
+            <span class='particles-circle'></span>
+            <span class='particles-circle'></span>
+            <span class='particles-circle'></span>
+            <span class='particles-circle'></span>
+            <span class='particles-circle'></span>
+            <span class='particles-circle'></span>
+            <span class='particles-circle'></span>
+            <span class='particles-circle'></span>
+            <span class='particles-circle'></span>
+            <span class='particles-circle'></span>
+            <span class='particles-circle'></span>
+            <span class='particles-circle'></span>
+            <span class='particles-circle'></span>
+            <span class='particles-circle'></span>
+            <span class='particles-circle'></span>
+            <span class='particles-circle'></span>
+            <span class='particles-circle'></span>
+            <span class='particles-circle'></span>
+            <span class='particles-circle'></span>
+            <span class='particles-circle'></span>
+            <span class='particles-circle'></span>
+            <span class='particles-circle'></span>
+            <span class='particles-circle'></span>
+            <span class='particles-circle'></span>
+            <span class='particles-circle'></span>
+            <span class='particles-circle'></span>
+            <span class='particles-circle'></span>
+            <span class='particles-circle'></span>
+            <span class='particles-circle'></span>
+            <span class='particles-circle'></span>
+            <span class='particles-circle'></span>
+            <span class='particles-circle'></span>
+            <span class='particles-circle'></span>
+            <span class='particles-circle'></span>
+            <span class='particles-circle'></span>
+        </div>
+    </div>
+    </div>
+    <canvas class="webgl"></canvas>
+    <section class="ready-section-container">
+        <div class="ready-section">
+            <div class="glowing">
+                <span style="--i:1"></span>
+                <span style="--i:2"></span>
+                <span style="--i:3"></span>
+                <span style="--i:4"></span>
+            </div>
+            <div class="text-area">
+                <h1>Jump in and get ready!</h1>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem minima nesciunt ipsam pariatur excepturi, eos veritatis eius quae quos itaque ea nemo voluptatibus placeat commodi culpa asperiores beatae necessitatibus provident.</p>
+            </div>
+        </div>
+    </section>
+    <section class="featured-product">
+        <h2>Get your wheels</h2>
+        <div id="product-1" class="container">
+            <div class="card">
+                <div class="sneaker">
+                    <div class="circle"></div>
+                    <img id="product-image" alt="Adidas">
+                </div>
+                <div class="info">
+                    <h1 class="title">Totem Crossfire</h1>
+                    <h3>Crossfire UK Stock New Totem Mountain Bike/Bicycles Black 26'' wheel Lightweight Aluminium Frame 21 Speeds SHIMANO Disc</h3>
+                    <div class="sizes">
+                        <button class="size-button">39</button>
+                        <button class="size-button">40</button>
+                        <button class="size-button active">42</button>
+                        <button class="size-button">44</button>
+                    </div>
+                    <div class="purchase">
+                        <button>Add to cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        document.querySelectorAll('.size-button').forEach( item => {
+            item.addEventListener('click', (e) => {
+                document.querySelectorAll('.size-button').forEach( e => {
+                    if(e.classList.contains('active')){
+                        e.classList.remove("active")
+                    }
+                });
+                e.target.classList.add("active")
+            });
+        });
+    </script>
+</body>
+</html>
