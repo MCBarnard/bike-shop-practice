@@ -1,9 +1,6 @@
-# Three.js Starter
-Courtesy of Bruno Simon of https://threejs-journey.xyz/
+# Bike Shop 
 
-## Setup
-Download [Node.js](https://nodejs.org/en/download/).
-Run this followed commands:
+Built for me to test some three js and css animations
 
 ``` bash
 # Install dependencies (only the first time)

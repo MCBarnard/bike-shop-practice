@@ -1,0 +1,914 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body
+{
+    height: 100vh;
+    font-family: 'Poppins';
+    background: rgb(27, 27, 31);
+}
+
+.webgl
+{
+    position: fabsolutexed;
+    top: 0;
+    right: 0;
+    outline: none;
+}
+
+#intro.container {
+    position: relative;
+    z-index: 1;
+    color: #FFFFFF;
+    margin: 16em 0 0 8em;
+    height: calc(100vh - 16em);
+}
+
+h1 {
+    font-size: 4rem;
+}
+
+p {
+    font-size: 1.3rem;
+    color: rgb(107, 107, 122);
+    max-width: 600px;
+}
+
+button {
+    font-size: 1.3rem;
+    padding: .5em 1em;
+    margin-top: 3em;
+    background: rgb(0, 114, 255);
+    border: none;
+    color: #FFFFFF;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+canvas {
+    position: absolute;
+}
+
+.ready-section-container {
+    padding: 8em;
+    color: #FFFFFF;
+    overflow: hidden;
+}
+
+.ready-section-container > h1 {
+    font-size: 4rem;
+}
+
+.ready-section-container > p {
+    font-size: 1.3rem;
+    color: rgb(107, 107, 122);
+    max-width: 600px;
+}
+
+.ready-section {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+.glowing {
+    z-index: 0;
+}
+.glowing span {
+    position: absolute;
+    top: calc(80px * var(--i));
+    left: calc(80px * var(--i));
+    bottom: calc(80px * var(--i));
+    right: calc(80px * var(--i));
+}
+
+.glowing span:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -8px;
+    width: 15px;
+    height: 15px;
+    background: #f00;
+    border-radius: 50%;
+}
+
+.glowing span:nth-child(3n + 1):before {
+    background: rgba(134, 255, 0, 1);
+    box-shadow: 0 0 20px rgba(134, 255, 0, 1),
+                0 0 40px rgba(134, 255, 0, 1),
+                0 0 60px rgba(134, 255, 0, 1),
+                0 0 80px rgba(134, 255, 0, 1),
+                0 0 0 8px rgba(134, 255, 0, 0.1);
+}
+
+.glowing span:nth-child(3n + 2):before {
+    background: rgba(255, 214, 0, 1);
+    box-shadow: 0 0 20px rgba(255, 214, 0, 1),
+                0 0 40px rgba(255, 214, 0, 1),
+                0 0 60px rgba(255, 214, 0, 1),
+                0 0 80px rgba(255, 214, 0, 1),
+                0 0 0 8px rgba(255, 214, 0, 0.1);
+}
+
+.glowing span:nth-child(3n + 3):before {
+    background: rgba(0, 226, 255, 1);
+    box-shadow: 0 0 20px rgba(0, 226, 255, 1),
+                0 0 40px rgba(0, 226, 255, 1),
+                0 0 60px rgba(0, 226, 255, 1),
+                0 0 80px rgba(0, 226, 255, 1),
+                0 0 0 8px rgba(0, 226, 255, 0.1);
+}
+
+.glowing span:nth-child(3n + 4):before {
+    background: rgba(255, 0, 0, 1);
+    box-shadow: 0 0 20px rgba(255, 0, 0, 1),
+                0 0 40px rgba(255, 0, 0, 1),
+                0 0 60px rgba(255, 0, 0, 1),
+                0 0 80px rgba(255, 0, 0, 1),
+                0 0 0 8px rgba(255, 0, 0, 0.1);
+}
+
+.glowing span:nth-child(3n + 1) {
+    animation: particles 11s alternate infinite
+}
+
+.glowing span:nth-child(3n + 2) {
+    animation: particles 8s alternate infinite
+}
+
+.glowing span:nth-child(3n + 3) {
+    animation: particles-reverse 8s alternate infinite
+}
+
+.glowing span:nth-child(3n + 4) {
+    animation: random-translate 15s alternate infinite ease-in-out;
+}
+
+@keyframes random-translate {
+    0% {
+        transform: translate(400px, -50px);
+    }
+    50% {
+        transform: translate(400px, -700px) rotate(360deg);
+    }
+    100% {
+        transform: translate(-30px, 0);
+    }
+}
+
+@keyframes particles {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes particles-reverse {
+    0% {
+        transform: rotate(360deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+.text-area {
+    display: block;
+    text-align: center;
+    margin: auto;
+    z-index: 1;
+}
+
+.text-area p {
+    text-align: center;
+    margin: auto;
+}
+
+/* Products Section */
+#product-1.container {
+    width: 800px;
+    margin: auto;
+    /*background: aliceblue;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#product-1 .card {
+    transform-style: preserve-3d;
+    min-height: 400px;
+    width: 28rem;
+    border-radius: 30px;
+    padding: 30px 5rem;
+    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2), 0 0 50px rgba(0, 0, 0, 0.2);
+    perspective: 1000px;
+}
+#product-1 .sneaker {
+    min-height: 245px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#product-1 .sneaker img {
+    width: 20rem;
+    z-index: 2;
+    transition: all 0.75s ease-out;
+}
+
+#product-1 .circle {
+    width: 15rem;
+    height: 15rem;
+    background: linear-gradient(to right, #6CD6FFFF, rgba(0, 177, 169, 0.75));
+    position: absolute;
+    border-radius: 50%;
+    z-index: 1;
+}
+#product-1 .info h1 {
+    font-size: 3rem;
+    transition: all 0.75s ease-out;
+    margin-top: 2rem;
+    color: #FFFFFF;
+}
+#product-1 .info h3 {
+    font-size: 1.5rem;
+    padding: 0;
+    color: #585858;
+    font-weight: lighter;
+    transition: all 0.75s ease-out;
+}
+#product-1 .sizes {
+    display: flex;
+    justify-content: space-between;
+    transition: all 0.75s ease-out;
+}
+
+#product-1 .sizes button {
+    outline: none;
+    padding: 0.5rem 2rem;
+    background: none;
+    border: none;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    border-radius: 30px;
+    font-weight: bold;
+}
+
+#product-1 button.active {
+    background: #585858;
+    color: #FFFFFF;
+}
+
+#product-1 .purchase {
+    transition: all 0.75s ease-out;
+}
+
+#product-1 .purchase button {
+    width: 100%;
+    padding: 1rem 0;
+    background: #248a88;
+    border: none;
+    color: #FFFFFF;
+    cursor: pointer;
+    border-radius: 30px;
+    font-weight: bolder;
+    transition: all 0.75s ease-out;
+}
+.featured-product {
+    padding-bottom: 50px;
+    padding-left: 8em;
+    padding-right: 8em;
+}
+.featured-product > h2 {
+    color: #FFFFFF;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 50px;
+}
+/* button animation*/
+.go-biking-button {
+    position: relative;
+    width: 200px;
+    margin: 150px auto;
+    height: 66px;
+}
+.go-biking-button .btn {
+    padding: 0;
+    margin-top: 0;
+    background-color: #058cb6;
+    border: none;
+    outline: none;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #fff;
+    display: inline-block;
+    width: 200px;
+    height: 66px;
+    text-align: center;
+    line-height: 66px;
+    font-size: 22px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    letter-spacing: 2px;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    -moz-user-select: -moz-none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-transform: perspective(600px) rotateX(0deg) scale(1);
+    -ms-transform: perspective(600px) rotateX(0deg) scale(1);
+    -webkit-transform: perspective(600px) rotateX(0deg) scale(1);
+    transform: perspective(600px) rotateX(0deg) scale(1);
+    -moz-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    -webkit-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+}
+.go-biking-button .btn:hover {
+    background-color: #6CD6FFFF;
+}
+.go-biking-button .btn:active {
+    -moz-transform: perspective(600px) rotateX(15deg) scale(0.9);
+    -ms-transform: perspective(600px) rotateX(15deg) scale(0.9);
+    -webkit-transform: perspective(600px) rotateX(15deg) scale(0.9);
+    transform: perspective(600px) rotateX(15deg) scale(0.9);
+    font-size: 21px;
+    -moz-box-shadow: 0 20px 40px rgba(0, 177, 169, 0.75);
+    -webkit-box-shadow: 0 20px 40px rgba(0, 177, 169, 0.75);
+    box-shadow: 0 20px 40px rgba(0, 177, 169, 0.75);
+}
+.active .go-biking-button .btn:active {
+    -moz-transform: perspective(600px) rotateX(0deg) scale(1);
+    -ms-transform: perspective(600px) rotateX(0deg) scale(1);
+    -webkit-transform: perspective(600px) rotateX(0deg) scale(1);
+    transform: perspective(600px) rotateX(0deg) scale(1);
+    font-size: 22px;
+    -moz-box-shadow: 0 15px 40px rgba(0, 177, 169, 0.75);
+    -webkit-box-shadow: 0 15px 40px rgba(0, 177, 169, 0.75);
+    box-shadow: 0 15px 40px rgba(0, 177, 169, 0.75);
+}
+.go-biking-button .particles-circle {
+    position: absolute;
+    background-color: #6CD6FFFF;
+    width: 30px;
+    height: 30px;
+    top: 10px;
+    left: 50%;
+    margin-left: -15px;
+    z-index: -1;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    -moz-transform: scale(0);
+    -ms-transform: scale(0);
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    visibility: hidden;
+}
+.go-biking-button .particles-circle:nth-of-type(odd) {
+    border: solid 2px #6CD6FFFF;
+    background-color: transparent;
+}
+@keyframes particles-1 {
+    from {
+        transform: scale(1);
+        visibility: visible;
+    }
+    to {
+        left: 172px;
+        top: 9px;
+        transform: scale(0);
+        visibility: hidden;
+    }
+}
+.active .go-biking-button .particles-circle:nth-of-type(1) {
+    animation: particles-1 1.5s 0.025s;
+}
+@keyframes particles-2 {
+    from {
+        transform: scale(1);
+        visibility: visible;
+    }
+    to {
+        left: -70px;
+        top: 9px;
+        transform: scale(0);
+        visibility: hidden;
+    }
+}
+.active .go-biking-button .particles-circle:nth-of-type(2) {
+    animation: particles-2 1.5s 0.05s;
+}
+@keyframes particles-3 {
+    from {
+        transform: scale(1);
+        visibility: visible;
+    }
+    to {
+        left: -185px;
+        top: -55px;
+        transform: scale(0);
+        visibility: hidden;
+    }
+}
+.active .go-biking-button .particles-circle:nth-of-type(3) {
+    animation: particles-3 1.5s 0.075s;
+}
+@keyframes particles-4 {
+    from {
+        transform: scale(1);
+        visibility: visible;
+    }
+    to {
+        left: 90px;
+        top: -130px;
+        transform: scale(0);
+        visibility: hidden;
+    }
+}
+.active .go-biking-button .particles-circle:nth-of-type(4) {
+    animation: particles-4 1.5s 0.1s;
+}
+@keyframes particles-5 {
+    from {
+        transform: scale(1);
+        visibility: visible;
+    }
+    to {
+        left: -239px;
+        top: -177px;
+        transform: scale(0);
+        visibility: hidden;
+    }
+}
+.active .go-biking-button .particles-circle:nth-of-type(5) {
+    animation: particles-5 1.5s 0.125s;
+}
+@keyframes particles-6 {
+    from {
+        transform: scale(1);
+        visibility: visible;
+    }
+    to {
+        left: -189px;
+        top: -191px;
+        transform: scale(0);
+        visibility: hidden;
+    }
+}
+.active .go-biking-button .particles-circle:nth-of-type(6) {
+    animation: particles-6 1.5s 0.15s;
+}
+@keyframes particles-7 {
+    from {
+        transform: scale(1);
+        visibility: visible;
+    }
+    to {
+        left: 70px;
+        top: 126px;
+        transform: scale(0);
+        visibility: hidden;
+    }
+}
+.active .go-biking-button .particles-circle:nth-of-type(7) {
+    animation: particles-7 1.5s 0.175s;
+}
+@keyframes particles-8 {
+    from {
+        transform: scale(1);
+        visibility: visible;
+    }
+    to {
+        left: -120px;
+        top: -141px;
+        transform: scale(0);
+        visibility: hidden;
+    }
+}
+.active .go-biking-button .particles-circle:nth-of-type(8) {
+    animation: particles-8 1.5s 0.2s;
+}
+@keyframes particles-9 {
+    from {
+        transform: scale(1);
+        visibility: visible;
+    }
+    to {
+        left: -25px;
+        top: -159px;
+        transform: scale(0);
+        visibility: hidden;
+    }
+}
+.active .go-biking-button .particles-circle:nth-of-type(9) {
+    animation: particles-9 1.5s 0.225s;
+}
+@keyframes particles-10 {
+    from {
+        transform: scale(1);
+        visibility: visible;
+    }
+    to {
+        left: 70px;
+        top: 149px;
+        transform: scale(0);
+        visibility: hidden;
+    }
+}
+.active .go-biking-button .particles-circle:nth-of-type(10) {
+    animation: particles-10 1.5s 0.25s;
+}
+@keyframes particles-11 {
+    from {
+        transform: scale(1);
+        visibility: visible;
+    }
+    to {
+        left: 146px;
+        top: -49px;
+        transform: scale(0);
+        visibility: hidden;
+    }
+}
+.active .go-biking-button .particles-circle:nth-of-type(11) {
+    animation: particles-11 1.5s 0.275s;
+}
+@keyframes particles-12 {
+    from {
+        transform: scale(1);
+        visibility: visible;
+    }
+    to {
+        left: -184px;
+        top: 71px;
+        transform: scale(0);
+        visibility: hidden;
+    }
+}
+.active .go-biking-button .particles-circle:nth-of-type(12) {
+    animation: particles-12 1.5s 0.3s;
+}
+@keyframes particles-13 {
+    from {
+        transform: scale(1);
+        visibility: visible;
+    }
+    to {
+        left: -191px;
+        top: -125px;
+        transform: scale(0);
+        visibility: hidden;
+    }
+}
+.active .go-biking-button .particles-circle:nth-of-type(13) {
+    animation: particles-13 1.5s 0.325s;
+}
+@keyframes particles-14 {
+    from {
+        transform: scale(1);
+        visibility: visible;
+    }
+    to {
+        left: -4px;
+        top: 86px;
+        transform: scale(0);
+        visibility: hidden;
+    }
+}
+.active .go-biking-button .particles-circle:nth-of-type(14) {
+    animation: particles-14 1.5s 0.35s;
+}
+@keyframes particles-15 {
+    from {
+        transform: scale(1);
+        visibility: visible;
+    }
+    to {
+        left: -139px;
+        top: 72px;
+        transform: scale(0);
+        visibility: hidden;
+    }
+}
+.active .go-biking-button .particles-circle:nth-of-type(15) {
+    animation: particles-15 1.5s 0.375s;
+}
+@keyframes particles-16 {
+    from {
+        transform: scale(1);
+        visibility: visible;
+    }
+    to {
+        left: 38px;
+        top: 142px;
+        transform: scale(0);
+        visibility: hidden;
+    }
+}
+.active .go-biking-button .particles-circle:nth-of-type(16) {
+    animation: particles-16 1.5s 0.4s;
+}
+@keyframes particles-17 {
+    from {
+        transform: scale(1);
+        visibility: visible;
+    }
+    to {
+        left: 239px;
+        top: -145px;
+        transform: scale(0);
+        visibility: hidden;
+    }
+}
+.active .go-biking-button .particles-circle:nth-of-type(17) {
+    animation: particles-17 1.5s 0.425s;
+}
+@keyframes particles-18 {
+    from {
+        transform: scale(1);
+        visibility: visible;
+    }
+    to {
+        left: 191px;
+        top: -56px;
+        transform: scale(0);
+        visibility: hidden;
+    }
+}
+.active .go-biking-button .particles-circle:nth-of-type(18) {
+    animation: particles-18 1.5s 0.45s;
+}
+@keyframes particles-19 {
+    from {
+        transform: scale(1);
+        visibility: visible;
+    }
+    to {
+        left: -99px;
+        top: 145px;
+        transform: scale(0);
+        visibility: hidden;
+    }
+}
+.active .go-biking-button .particles-circle:nth-of-type(19) {
+    animation: particles-19 1.5s 0.475s;
+}
+@keyframes particles-20 {
+    from {
+        transform: scale(1);
+        visibility: visible;
+    }
+    to {
+        left: 96px;
+        top: -147px;
+        transform: scale(0);
+        visibility: hidden;
+    }
+}
+.active .go-biking-button .particles-circle:nth-of-type(20) {
+    animation: particles-20 1.5s 0.5s;
+}
+@keyframes particles-21 {
+    from {
+        transform: scale(1);
+        visibility: visible;
+    }
+    to {
+        left: 109px;
+        top: 196px;
+        transform: scale(0);
+        visibility: hidden;
+    }
+}
+.active .go-biking-button .particles-circle:nth-of-type(21) {
+    animation: particles-21 1.5s 0.525s;
+}
+@keyframes particles-22 {
+    from {
+        transform: scale(1);
+        visibility: visible;
+    }
+    to {
+        left: -41px;
+        top: -11px;
+        transform: scale(0);
+        visibility: hidden;
+    }
+}
+.active .go-biking-button .particles-circle:nth-of-type(22) {
+    animation: particles-22 1.5s 0.55s;
+}
+@keyframes particles-23 {
+    from {
+        transform: scale(1);
+        visibility: visible;
+    }
+    to {
+        left: -40px;
+        top: 164px;
+        transform: scale(0);
+        visibility: hidden;
+    }
+}
+.active .go-biking-button .particles-circle:nth-of-type(23) {
+    animation: particles-23 1.5s 0.575s;
+}
+@keyframes particles-24 {
+    from {
+        transform: scale(1);
+        visibility: visible;
+    }
+    to {
+        left: 39px;
+        top: 173px;
+        transform: scale(0);
+        visibility: hidden;
+    }
+}
+.active .go-biking-button .particles-circle:nth-of-type(24) {
+    animation: particles-24 1.5s 0.6s;
+}
+@keyframes particles-25 {
+    from {
+        transform: scale(1);
+        visibility: visible;
+    }
+    to {
+        left: -215px;
+        top: -123px;
+        transform: scale(0);
+        visibility: hidden;
+    }
+}
+.active .go-biking-button .particles-circle:nth-of-type(25) {
+    animation: particles-25 1.5s 0.625s;
+}
+@keyframes particles-26 {
+    from {
+        transform: scale(1);
+        visibility: visible;
+    }
+    to {
+        left: -45px;
+        top: -22px;
+        transform: scale(0);
+        visibility: hidden;
+    }
+}
+.active .go-biking-button .particles-circle:nth-of-type(26) {
+    animation: particles-26 1.5s 0.65s;
+}
+@keyframes particles-27 {
+    from {
+        transform: scale(1);
+        visibility: visible;
+    }
+    to {
+        left: -80px;
+        top: 8px;
+        transform: scale(0);
+        visibility: hidden;
+    }
+}
+.active .go-biking-button .particles-circle:nth-of-type(27) {
+    animation: particles-27 1.5s 0.675s;
+}
+@keyframes particles-28 {
+    from {
+        transform: scale(1);
+        visibility: visible;
+    }
+    to {
+        left: 41px;
+        top: 132px;
+        transform: scale(0);
+        visibility: hidden;
+    }
+}
+.active .go-biking-button .particles-circle:nth-of-type(28) {
+    animation: particles-28 1.5s 0.7s;
+}
+@keyframes particles-29 {
+    from {
+        transform: scale(1);
+        visibility: visible;
+    }
+    to {
+        left: 17px;
+        top: -126px;
+        transform: scale(0);
+        visibility: hidden;
+    }
+}
+.active .go-biking-button .particles-circle:nth-of-type(29) {
+    animation: particles-29 1.5s 0.725s;
+}
+@keyframes particles-30 {
+    from {
+        transform: scale(1);
+        visibility: visible;
+    }
+    to {
+        left: -159px;
+        top: 176px;
+        transform: scale(0);
+        visibility: hidden;
+    }
+}
+.active .go-biking-button .particles-circle:nth-of-type(30) {
+    animation: particles-30 1.5s 0.75s;
+}
+@keyframes particles-31 {
+    from {
+        transform: scale(1);
+        visibility: visible;
+    }
+    to {
+        left: -197px;
+        top: -94px;
+        transform: scale(0);
+        visibility: hidden;
+    }
+}
+.active .go-biking-button .particles-circle:nth-of-type(31) {
+    animation: particles-31 1.5s 0.775s;
+}
+@keyframes particles-32 {
+    from {
+        transform: scale(1);
+        visibility: visible;
+    }
+    to {
+        left: 18px;
+        top: -244px;
+        transform: scale(0);
+        visibility: hidden;
+    }
+}
+.active .go-biking-button .particles-circle:nth-of-type(32) {
+    animation: particles-32 1.5s 0.8s;
+}
+@keyframes particles-33 {
+    from {
+        transform: scale(1);
+        visibility: visible;
+    }
+    to {
+        left: -113px;
+        top: 96px;
+        transform: scale(0);
+        visibility: hidden;
+    }
+}
+.active .go-biking-button .particles-circle:nth-of-type(33) {
+    animation: particles-33 1.5s 0.825s;
+}
+@keyframes particles-34 {
+    from {
+        transform: scale(1);
+        visibility: visible;
+    }
+    to {
+        left: 220px;
+        top: -212px;
+        transform: scale(0);
+        visibility: hidden;
+    }
+}
+.active .go-biking-button .particles-circle:nth-of-type(34) {
+    animation: particles-34 1.5s 0.85s;
+}
+@keyframes particles-35 {
+    from {
+        transform: scale(1);
+        visibility: visible;
+    }
+    to {
+        left: -197px;
+        top: -191px;
+        transform: scale(0);
+        visibility: hidden;
+    }
+}
+.active .go-biking-button .particles-circle:nth-of-type(35) {
+    animation: particles-35 1.5s 0.875s;
+}
+
+
+/*# sourceMappingURL=main.css.map*/
